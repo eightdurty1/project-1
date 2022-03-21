@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica;
+  height: 100vh;
+  /* width: 100vh; */
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+  /* background-color: rgb(79, 128, 79); */
+  grid-template-rows: 80px 1fr 64px;
+  grid-template-columns: 400px 1fr;
+  /* 350px ^^^ */
+  background-color: black;
+}
+
+main {
+  grid-area: main;
+  /* background-color: none; */
+  color: rgb(153, 139, 163);
+  background-color: transparent;
+}
+
+header {
+  grid-area: header;
+
+  background-color: none;
+  text-align: center;
+  color: rgb(153, 139, 163);
+}
+
+aside {
+  grid-area: aside;
+  background-color: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#letter-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+}
+
+#letter-options > button {
+  font-size: 30px;
+  padding: 9px;
+  margin: 5%;
+  width: 4vmin;
+  height: 4vmin;
+  background-color: transparent;
+  color: aqua;
+}
+
+aside > #try-again-butt {
+  font-size: 24px;
+  padding: 15px;
+  margin-top: 30%;
+  background-color: transparent;
+  color: aqua;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(38, 16, 53);
+}
+
+#wrong-let-msg {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
