@@ -23,7 +23,7 @@ const spriteShift = 103;
 /*----- app's state (variables) -----*/
 let secretWord;//random word from words
 let letterChosen;//what letters are right and what position
-let incLetter;//array that will hold wrong letters
+let incLetter;// hold wrong letters
 let totalAllowedTries;
 
 //Set elements on the DOM that will be manipulated
@@ -54,7 +54,7 @@ initialize();
 // The initial controller function sets all the inital state values (model)
 
 function initialize(e){
-    console.log('this is working');
+    // console.log('this is working');
 
 //this function will set the inital value of our state varaibles defined above
 //write a variable that will grab a random value from the words array and assign it to the secretword
@@ -66,7 +66,7 @@ letterChosen = '';
 //we will then nest an if else statemnt inside of a for loop that check to see if the characters chosen by the player match the secret word. 
 for(let letter of secretWord ){
 
-    letterChosen += letter === " " ? " " : "_ "
+    letterChosen += letter === " " ? " " : "_ "//
 
 
 
@@ -200,7 +200,7 @@ function tryAgainClick(e){
 
     console.log(e.target.value);
 
-    e.target.innerText = '';//here
+    // e.target.innerText = '';//here
     
 }
 
