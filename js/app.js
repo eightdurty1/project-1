@@ -24,18 +24,13 @@ const imagesArr = [
 
 
 
-
-
-// const spriteShift = 103;
-//declare constant for sprite animation
-
 /*----- app's state (variables) -----*/
 let secretWord;//random word from words
 let chosenCorrectLetters;//what letters are right and what position
 let chosenIncorrectLetters;// hold wrong letters
 let totalAllowedTries;
 
-//Set elements on the DOM that will be manipulated
+
 /*----- cached element references -----*/
 const wrongLetterCountElement = document.querySelector('#wrong-let-msg');//worded message will return to player
 
@@ -50,7 +45,7 @@ const tryAgainButton = document.querySelector('#try-again-butt');//target the tr
 
 
 
-// setup event listeners
+
 /*----- event listeners -----*/
 document.querySelector('#letter-options').addEventListener('click', chooseLetter)
 
@@ -61,79 +56,55 @@ document.querySelector('#try-again-butt').addEventListener('click', initialize);
 
 initialize();
 /*----- functions -----*/
-
-// The initial controller function sets all the inital state values (model)
-
+//Initializes game
 function initialize(e){
-    // console.log('this is working');
-
-
-
-//this function will set the inital value of our state varaibles defined above
-//write a variable that will grab a random value from the words array and assign it to the secretword
+   
+//Chooses random word
 const random = Math.floor(Math.random() * words.length);
 secretWord = words[random];
-//initialize empty string
+
+
 chosenCorrectLetters = '';
 
-//we will then nest an if else statemnt inside of a for loop that check to see if the characters chosen by the player match the secret word. 
+//Adding underline for every character in the secret word
 for(let letter of secretWord ){
 
-    chosenCorrectLetters += letter === " " ? " " : "_"//
+    chosenCorrectLetters += letter === " " ? " " : "_"
 
-
-
-
-
-
-    // if(letter === " "){
-    //     letterChosen = letterChosen + " "; 
-
-    // }else{
-    //     letterChosen = letterChosen + "_";
-    // };
 
     
 
 };
 
 chosenIncorrectLetters = [];
-totalAllowedTries = 6;//changed 9 to 7 to test
+totalAllowedTries = 6;
 
-
-
-
-
-//we will then update the state we just assigned and update the dom with new values.
 renderOnDom();
 }
 
 
-
-//I will declare a new function that will render messages 
-//function 
-
+//Tells rendorOnDom what message to tell the player
 function messageToPlayer(playerNumGuesses, playerWin, playerLoss) {
     if(playerWin){
         return '¡Felicidades! Superaste el ciclo lunar.';
     }
     if(playerLoss){
-        return '¡Juego terminado! El ciclo lunar está completo.' //Game Over
+        return '¡Juego terminado! El ciclo lunar está completo.';
     }
-    //-------> come back to this
+    
     const alertMessage = playerNumGuesses === 1 ? `Te Queda ${playerNumGuesses} Adivinanza ` : `Te Quedan ${playerNumGuesses} Adivinanzas`;
 
-    // const alertMessage = playerNumGuesses === 1 ? `You have ${playerNumGuesses} guess left ` : `You have ${playerNumGuesses} guesses left`;
 
     return alertMessage;
 }
 
+//Checks if their guess matches secret word
 function isPlayerWinner(){
 
     return chosenCorrectLetters === secretWord;
 }
 
-
+//Checks player has tries left
 function isPlayerLooser(){
 
     if(totalAllowedTries - chosenIncorrectLetters.length <= 0){
@@ -143,68 +114,34 @@ function isPlayerLooser(){
     }
 }
 
-
+//This function puts information into the DOM.
 function renderOnDom() {
 
 
 
-    correctLetters.innerText = chosenCorrectLetters;//innerText
-    //----->finish here after sprite
+    correctLetters.innerText = chosenCorrectLetters;
 
-    // imageChange.style.backgroundPositionX = `-${spriteWidth * incLetter.length}vmin`
-
-
-    // imageChange.style.backgroundPositionX = `-${0}px`
+    //Updates moon image depending on wrong answers
     lunarPhaseElement.style.background = imagesArr[chosenIncorrectLetters.length];
 
 
-
-    
-
-    // if(incLetter.length === 5){
-    //     imageChange.style.width = '125px';
-    //     imageChange.style.backgroundPositionX = `-${400}px`;
-    // }else{
-    //     imageChange.style.width = '110px';
-    //     imageChange.style.backgroundPositionX = `-${spriteShift * incLetter.length}px`;
-    // }
-
-
-
-
-    // console.log(incLetter)
-
-    //innerText below
     wrongLetterCountElement.innerText = messageToPlayer(totalAllowedTries - chosenIncorrectLetters.length, isPlayerWinner(), isPlayerLooser());
     
-
-    // letterButt.forEach((btns) => {
-    //     const letter = btns.innerText;//innerText
-
-    //     if(incLetter.includes(letter)){
-    //         btns.className = 'wrong-letter';
-    //     }else if(letterChosen.includes(letter)){
-    //         btns.className = 'valid-letter';
-
-    //     }else{
-    //        btns.className =  '';
-    //     };
-    // })
 }
 
+//Checks if character that was clicked on is inside the secretWord. 
 function chooseLetter(e){
-    // console.log(e.target);
-    if(e.target.tagName === 'SECTION') return;//here
+    if(e.target.tagName === 'SECTION') return;
     
 
-    if(secretWord.includes(e.target.innerText)){//here
+    if(secretWord.includes(e.target.innerText)){
         
         
         let updateGuessWord = '';
 
         for(let i = 0; i < secretWord.length; i++){
-            if(secretWord.charAt(i) === e.target.innerText){//here
-                updateGuessWord += e.target.innerText//here
+            if(secretWord.charAt(i) === e.target.innerText){
+                updateGuessWord += e.target.innerText
             }else{
 
                 updateGuessWord += chosenCorrectLetters.charAt(i);
@@ -213,13 +150,12 @@ function chooseLetter(e){
         chosenCorrectLetters = updateGuessWord
 
     }else{
-        chosenIncorrectLetters.push(e.target.innerText);//here
+        chosenIncorrectLetters.push(e.target.innerText);
     }
     renderOnDom();
 
-    console.log(e.target.value);
+    
 
-    // e.target.innerText = '';//here
     
 }
 
