@@ -16,6 +16,11 @@ body {
   align-content: stretch;
   justify-items: center;
   background-color: rgb(0, 0, 0);
+  background-image: url(../images/earthpano.jpeg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 200px;
+  font-family: "Orbitron", sans-serif;
 }
 
 main {
@@ -29,17 +34,21 @@ main {
   flex-direction: column; */
   /* justify-content: center;
   align-content: space-around; */
-  background-image: url(../images/planet-earth-horizon-hi.png);
+
+  /* background-image: url(../images/planet-earth-horizon-hi.png);
+  background-size: 400px;
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right bottom; */
 }
 
 header {
   grid-area: header;
-  font-size: 50px;
+  /* font-size: 50px; */
   background-color: none;
-  text-align: center;
+  /* text-align: center; */
   color: rgb(153, 139, 163);
+  /* text-align: left; */
+  width: 100%;
 }
 
 aside {
@@ -49,6 +58,7 @@ aside {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 300px;
 }
 
 #letter-options {
@@ -68,6 +78,7 @@ aside {
   border: none;
   color: aqua;
   /* border: 2px solid rgb(153, 139, 163); */
+  font-family: "Orbitron", sans-serif;
 }
 
 aside > #try-again-butt {
@@ -75,23 +86,27 @@ aside > #try-again-butt {
   padding: 15px;
   margin-top: 30%;
   background-color: transparent;
-  color: aqua;
+  color: rgb(153, 139, 163);
   /* border: 2px solid rgb(153, 139, 163); */
-  border: 4px solid aqua;
+  border: 4px solid rgb(153, 139, 163);
+  font-family: "Orbitron", sans-serif;
 }
 
 footer {
-  opacity: 70%;
+  opacity: 90%;
   grid-area: footer;
-  background-color: rgb(38, 16, 53);
+  background-color: rgb(0, 0, 0);
+  color: white;
   width: 100%;
 }
 
 #wrong-let-msg {
-  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
 }
 
-h3 {
+p {
   text-align: center;
 }
 
@@ -101,8 +116,12 @@ main > h2 {
 }
 
 #sprite {
-  background: url(../images/mooncycles.png) no-repeat;
-  width: 110px;
+  /* background-repeat: no-repeat;
+  background-position: center; */
+  /* background-size: ; */
+  /* width: 125px;
+  height: 200px; */
+  width: 249px;
   height: 250px;
   background-color: black;
 }
@@ -113,13 +132,16 @@ main > h2 {
 }
 
 #correct-letters {
+  letter-spacing: 20px;
   font-size: 6vmin;
   height: 100%;
   width: 100%;
 }
 
 h1 {
-  margin-top: 0%;
+  display: inline-block;
+  margin-left: 3vw;
+  font-size: 56px;
 }
 
 input {
