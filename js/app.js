@@ -12,13 +12,13 @@ const words = [
 ];
 
 const imagesArr = [
-    'url(../images/all-moons_01.png)',
-    'url(../images/all-moons_02.png)', 
-    'url(../images/all-moons_03.png)', 
-    'url(../images/all-moons_04.png)', 
-    'url(../images/all-moons_05.png)', 
-    'url(../images/all-moons_06.png)', 
-    'url(../images/all-moons_07.png)', 
+    'url(images/all-moons_01.png)',
+    'url(images/all-moons_02.png)', 
+    'url(images/all-moons_03.png)', 
+    'url(images/all-moons_04.png)', 
+    'url(images/all-moons_05.png)', 
+    'url(images/all-moons_06.png)', 
+    'url(images/all-moons_07.png)', 
 
 ];
 
