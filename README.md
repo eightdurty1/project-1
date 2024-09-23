@@ -11,7 +11,7 @@ Getting Started:
 The game automatically renders upon load. To begin guessing, click the letter options. Once the player wins or loses press, the player can restart the game by clicking the "Intentalo de Nuevo" button.
 
 Next Steps:
-Translated README.md to Spanish
+Translated README.md to Spanish Language
 Incorporate responsive design
 Modify the game style from button press to character input
 Assess for accessibility 
